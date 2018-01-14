@@ -11,16 +11,16 @@ ranks['Shamrock - 3'] = {}
 ranks['Marigold - 2'] = {}
 ranks['Cobalt - 1'] = {}
 
-ranks['Onyx - X']['Doppler'] = ''
+ranks['Onyx - X']["Doppler"] = ''
 
-ranks['Ivory - 4']['cecilioacc'] = ''
+ranks['Ivory - 4']["cecilioacc"] = ''
 
-ranks['Shamrock - 3']['razorsharp'] = ''
+ranks['Shamrock - 3']["razorsharp"] = ''
 
-ranks['Marigold - 2']['krikesof'] = ''
+ranks['Marigold - 2']["krikesof"] = ''
 
-ranks['Cobalt - 1']['Denialz'] = ''
-ranks['Cobalt - 1']['GenX'] = ''
+ranks['Cobalt - 1']["Denialz"] = ''
+ranks['Cobalt - 1']["GenX"] = ''
 
 empty = " ̷̧̟̭̺͕̜̦̔̏̊̍ͧ͊́̚̕͞"
 
@@ -235,6 +235,32 @@ def on_message(message):
             yield from bot.send_message(message.channel, embed=embed)
             return
         return
+    elif message.content.startswith("!add"):
+        args = str(message.content).split(" ")
+        try:
+            print(args[1])
+        except IndexError:
+            yield from bot.send_message(message.channel, "Invalid Argument. Proper Usage: !add {player} {rank}. {player"
+                                                         "} cannot be a mention, just the actual name, not nickname. Ca"
+                                                         "se Sensitive.")
+            return
+        try:
+            print(args[2])
+        except IndexError:
+            yield from bot.send_message(message.channel, "Invalid Argument. Proper Usage: !add {player} {rank}. {player"
+                                                         "} cannot be a mention, just the actual name, not nickname. Ca"
+                                                         "se Sensitive.")
+            return
+        index = ''
+        if str(args[2]).lower() == "ivory":
+            index = 'Ivory - 4'
+        elif str(args[2]).lower() == 'shamrock':
+            index = 'Shamrock - 3'
+        elif str(args[2]).lower() == 'marigold':
+            index = 'Marigold - 2'
+        elif str(args[2]).lower() == 'cobalt':
+            index = 'Cobalt - 1'
+        ranks[index][args[1]] = ''
     elif message.content.startswith("!"):
         yield from bot.send_message(message.channel, "Invalid Command.")
         return
