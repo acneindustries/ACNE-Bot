@@ -48,4 +48,4 @@ def on_message(message):
         time.sleep(2)
         yield from bot.send_message(message.channel, "You're rehired"+target+"!")
 
-bot.run("NDAxNTg2MDM4MjAxNTE2MDMy.DTsVsw.krSRHMWKOC4gA90eHOSAoIpvVX4")
+bot.run("")
