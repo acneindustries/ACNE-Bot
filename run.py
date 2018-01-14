@@ -1,5 +1,6 @@
 import discord
 import asyncio
+import time
 
 bot = discord.Client()
 
@@ -41,5 +42,10 @@ def on_message(message):
                                                               "act @cecilioacc#0219.")
             yield from bot.send_message(message.channel, embed=embed)
             return
+    elif message.content.startswith("!fire"):
+        command, target = str(message.content).split(" ", 3)
+        yield from bot.send_message(message.channel, "You're fired "+target+"!")
+        time.sleep(2)
+        yield from bot.send_message(message.channel, "You're rehired"+target+"!")
 
 bot.run("NDAxNTg2MDM4MjAxNTE2MDMy.DTsVsw.krSRHMWKOC4gA90eHOSAoIpvVX4")
