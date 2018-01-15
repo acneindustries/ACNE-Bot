@@ -21,6 +21,7 @@ ranks['Marigold - 2']["krikesof"] = ''
 
 ranks['Cobalt - 1']["Denialz"] = ''
 ranks['Cobalt - 1']["GenX"] = ''
+ranks['Cobalt - 1']["Potato"] = ''
 
 empty = " ̷̧̟̭̺͕̜̦̔̏̊̍ͧ͊́̚̕͞"
 
@@ -111,6 +112,15 @@ def on_message(message):
                     s, ivor, o = 1, 1, 1
                 elif c == 1:
                     m, s, ivor, o = 1, 1, 1, 1
+            elif args[2].lower() == "-":
+                if o == 1:
+                    ivor, s, m, c = 1, 1, 1, 1
+                elif ivor == 1:
+                    s, m, c = 1, 1, 1
+                elif s == 1:
+                    m, c = 1, 1
+                elif m == 1:
+                    c = 1
             print(args[2])
         except IndexError:
             print("No +")
